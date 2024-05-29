@@ -52,9 +52,9 @@ By following these steps, you will set up the project environment with all the r
 
 To import the necessary libraries, simply execute the following command:
 
-	```python
-	from imports import *
-	```
+```python
+from imports import *
+```
 	
 # Project Overview: Predicting House Prices
 
