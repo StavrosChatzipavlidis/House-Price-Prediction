@@ -251,3 +251,17 @@ print(rank_of_instance_122)
 
 Given the large size of the first instance relative to its comparatively low price, it's advisable to remove this entry from the dataset.
 
+## Instances with Unusually Low Price
+
+```python
+# Instances with a price less than 1 million
+filtered_df = df[df['price'] < 1e6]
+
+sorted_df = filtered_df.sort_values(by='price', ascending=True)
+
+sorted_df.head()
+```
+price	bedrooms	bathrooms	sqft_living	sqft_lot	floors	waterfront	view	condition	sqft_above	sqft_basement	yr_built	yr_renovated	total_sqft
+4351	7800	2	1.00	780	16344	1.0	0	0	1	780	0	1942	0	1560
+
+In this code snippet, we filter out instances with prices less than $1,000,000 and then sort the DataFrame by price in ascending order. This step ensures that outliers or anomalies in the data, such as extremely low prices, are appropriately addressed before proceeding with further analysis.
