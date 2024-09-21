@@ -1,11 +1,13 @@
 # House Price Prediction Using Stacked Ensemble Regression
+
+**# Project Roadmap**
+├── Setup
 │
 ├── Project Overview: Predicting House Prices
 │   ├── Description
 │   │   └── Explanation of project goals and features
 │   └── Data Overview
 │       └── Sample data table with key features
-├── Setup
 │
 ├── Data Preprocessing
 │   ├── Handling Missing Values
@@ -36,23 +38,6 @@
     └── Visualizations of original and transformed data
 
 
-# Project Overview: Predicting House Prices
-
-**Description**:
-
-In this project, we aim to predict house prices using a stacked ensemble regression approach. The dataset contains various features such as the number of bedrooms, bathrooms, square footage of living space, and more. By leveraging machine learning techniques, we aim to build a predictive model that can accurately estimate house prices based on these features.
-
-**Data Overview**:
-
-Below is an overview of the dataset containing information on house prices and related features:
-
-| Price     | Bedrooms | Bathrooms | Sqft Living | Sqft Lot | Floors | Waterfront | View | Condition | Sqft Above | Sqft Basement | Yr Built | Yr Renovated |
-|-----------|----------|-----------|-------------|----------|--------|------------|------|-----------|------------|---------------|----------|--------------|
-| 313000.0  | 3.0      | 1.50      | 1340        | 7912     | 1.5    | 0          | 0    | 3         | 1340       | 0             | 1955     | 2005         |
-| 2384000.0 | 5.0      | 2.50      | 3650        | 9050     | 2.0    | 0          | 4    | 5         | 3370       | 280           | 1921     | 0            |
-| 342000.0  | 3.0      | 2.00      | 1930        | 11947    | 1.0    | 0          | 0    | 4         | 1930       | 0             | 1966     | 0            |
-| 420000.0  | 3.0      | 2.25      | 2000        | 8030     | 1.0    | 0          | 0    | 4         | 1000       | 1000          | 1963     | 0            |
-| 550000.0  | 4.0      | 2.50      | 1940        | 10500    | 1.0    | 0          | 0    | 4         | 1140       | 800           | 1976     | 1992         |
 
 # Setup
 
@@ -108,6 +93,24 @@ To import the necessary libraries, simply execute the following command:
 ```python
 from imports import *
 ```
+	
+# Project Overview: Predicting House Prices
+
+**Description**:
+
+In this project, we aim to predict house prices using a stacked ensemble regression approach. The dataset contains various features such as the number of bedrooms, bathrooms, square footage of living space, and more. By leveraging machine learning techniques, we aim to build a predictive model that can accurately estimate house prices based on these features.
+
+**Data Overview**:
+
+Below is an overview of the dataset containing information on house prices and related features:
+
+| Price     | Bedrooms | Bathrooms | Sqft Living | Sqft Lot | Floors | Waterfront | View | Condition | Sqft Above | Sqft Basement | Yr Built | Yr Renovated |
+|-----------|----------|-----------|-------------|----------|--------|------------|------|-----------|------------|---------------|----------|--------------|
+| 313000.0  | 3.0      | 1.50      | 1340        | 7912     | 1.5    | 0          | 0    | 3         | 1340       | 0             | 1955     | 2005         |
+| 2384000.0 | 5.0      | 2.50      | 3650        | 9050     | 2.0    | 0          | 4    | 5         | 3370       | 280           | 1921     | 0            |
+| 342000.0  | 3.0      | 2.00      | 1930        | 11947    | 1.0    | 0          | 0    | 4         | 1930       | 0             | 1966     | 0            |
+| 420000.0  | 3.0      | 2.25      | 2000        | 8030     | 1.0    | 0          | 0    | 4         | 1000       | 1000          | 1963     | 0            |
+| 550000.0  | 4.0      | 2.50      | 1940        | 10500    | 1.0    | 0          | 0    | 4         | 1140       | 800           | 1976     | 1992         |
 
 
 # Data Preprocessing
