@@ -74,9 +74,10 @@ Below is an overview of the dataset containing information on house prices and r
 | 420000.0  | 3.0      | 2.25      | 2000        | 8030     | 1.0    | 0          | 0    | 4         | 1000       | 1000          | 1963     | 0            |
 | 550000.0  | 4.0      | 2.50      | 1940        | 10500    | 1.0    | 0          | 0    | 4         | 1140       | 800           | 1976     | 1992         |
 
-<details>
+
 # Data Preprocessing
 
+<details>
 ## Handling Missing Values
 
 ```python
