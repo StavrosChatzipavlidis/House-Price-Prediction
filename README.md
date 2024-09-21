@@ -58,11 +58,11 @@ from imports import *
 	
 # Project Overview: Predicting House Prices
 
-Description:
+**Description**:
 
 In this project, we aim to predict house prices using a stacked ensemble regression approach. The dataset contains various features such as the number of bedrooms, bathrooms, square footage of living space, and more. By leveraging machine learning techniques, we aim to build a predictive model that can accurately estimate house prices based on these features.
 
-Data Overview:
+**Data Overview**:
 
 Below is an overview of the dataset containing information on house prices and related features:
 
@@ -98,6 +98,7 @@ Although sqft_lot exists, it represents the entire area of the land and not just
 
 ## Checking for Instances with Negative or Zero Prices
 
+<details>
 ```python
 instances_with_negative_or_zero_price = df[(df['price'] <= 0)]
 
@@ -120,6 +121,7 @@ There are instances with negative or zero prices:
 | 4361 | 0.0   | 5.0      | 1.50      | 1500        | 7112     | 1.0    | 0          | 0    | 5         | 760        | 740           | 1920     | 0            |
 
 There are instances with prices set to zero. These instances are not realistic and should be removed from the dataset.
+</details>
 
 ## Removing Instances with Zero Prices
 
