@@ -119,6 +119,7 @@ There are instances with negative or zero prices:
 | 4357 | 0.0   | 6.0      | 2.75      | 3200        | 9200     | 1.0    | 0          | 2    | 4         | 1600       | 1600          | 1953     | 1983         |
 | 4358 | 0.0   | 5.0      | 3.50      | 3480        | 36615    | 2.0    | 0          | 0    | 4         | 2490       | 990           | 1983     | 0            |
 | 4361 | 0.0   | 5.0      | 1.50      | 1500        | 7112     | 1.0    | 0          | 0    | 5         | 760        | 740           | 1920     | 0            |
+
 </details>
 
 There are instances with prices set to zero. These instances are not realistic and should be removed from the dataset.
