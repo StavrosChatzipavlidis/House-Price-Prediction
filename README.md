@@ -109,6 +109,7 @@ if not instances_with_negative_or_zero_price.empty:
 else:
     print("There are no instances with negative or zero prices.")
 ```
+
 </details>
 
 There are instances with negative or zero prices:
@@ -127,15 +128,18 @@ There are instances with prices set to zero. These instances are not realistic a
 ## Removing Instances with Zero Prices
 
 <details>
+
 ```python
 indices_to_drop = df[df['price'] == 0].index
 df.drop(indices_to_drop, inplace=True)
 ```
+
 </details>
 
 ## Checking for Outliers in Price
 
 <details>
+
 ```python
 plt.figure(figsize=(8, 6))
 sns.boxplot(data=df['price'], orient='v', palette='Set2')
@@ -143,6 +147,7 @@ plt.title('Box Plot for Price')
 plt.ylabel('Price')
 plt.show()
 ```
+
 </details>
 
 ![boxplot](./img/boxplot.png)
@@ -150,12 +155,14 @@ plt.show()
 ## Visualizing Price vs. Total Square Feet
 
 <details>
+
 ```python
 plt.scatter(x=df['total_sqft'], y=df['price'])
 plt.ylabel('Price')
 plt.xlabel('Total Square Feet')
 plt.show()
 ```
+
 </details>
 
 ![scatterplot](./img/price_sqft_scatter.png)
@@ -167,6 +174,7 @@ Here, there are 3 outliers that don't make sense: two very expensive houses with
 ### Instances with Unusual Prices
 
 <details>
+
 ```python
 # Get the rows with the 2 highest values in the 'price' column
 top_2_highest = df.nlargest(2, 'price')
@@ -174,6 +182,7 @@ top_2_highest = df.nlargest(2, 'price')
 print("Instances with the highest price:")
 print(top_2_highest)
 ```
+
 </details>
 
 Top 2 highest values in the 'Price' column:
@@ -183,6 +192,7 @@ Top 2 highest values in the 'Price' column:
 | 4346     | 12,899,000 | 3        | 2.5       | 2,190        | 11,394    | 1.0     | 0           | 0    | 3          | 1,550        | 640             | 1956        | 2001            | 4,380        |
 
 <details>
+
 ```python
 description = df[['total_sqft', 'sqft_lot']].describe().reset_index()
 
@@ -192,6 +202,7 @@ description.rename(columns={'index': 'Statistics'}, inplace=True)
 # Print the descriptions
 print(description.to_string(index=False))
 ```
+
 </details>
 
 |   Statistics |   total_sqft |   sqft_lot |
@@ -212,22 +223,26 @@ The analysis reveals that the first instance lacks justification for its price, 
 To ensure the integrity of our analysis, we identified outliers characterized by exceptionally high prices. Instances where the price exceeded $12,000,000 and the total square footage was less than 5000 square feet were flagged as outliers. Subsequently, these outliers were removed from the dataset to mitigate their potential influence on our modeling efforts. The following Python code snippet demonstrates this outlier removal process:
 
 <details>
+
 ```python
 instances_with_highest_price = df[(df['price'] > 12e6) & (df['total_sqft'] < 5000)].index
 
 df.drop(instances_with_highest_price, inplace=True)
 ```
+
 </details>
 
 ## Instances with Unusually High Square Footage
 
 <details>
+
 ```python
 top_2_highest_sqft = df.nlargest(2, 'total_sqft')
 
 print("Instances with the highest Total_sqft:")
 print(top_2_highest_sqft)
 ```
+
 </details>
 
 | Instance |    price   |  bedrooms |  bathrooms | sqft_living | sqft_lot | floors | waterfront | view | condition | sqft_above | sqft_basement | yr_built | yr_renovated | total_sqft |
@@ -239,6 +254,7 @@ print(top_2_highest_sqft)
 Despite being the largest house in terms of total square footage, the price of the first instance appears relatively low when compared to properties of similar sizes. When assessing its rank in the price range, the code below demonstrates that it occupies the 30th position:
 
 <details>
+
 ```python
 # Sort the DataFrame by price in descending order
 sorted_df = df.sort_values(by='price', ascending=False)
@@ -251,6 +267,7 @@ rank_of_instance_122 = index_of_instance_122 + 1
 
 print(rank_of_instance_122)
 ```
+
 </details>
 
 Given the large size of the first instance relative to its comparatively low price, it's advisable to remove this entry from the dataset.
@@ -258,6 +275,7 @@ Given the large size of the first instance relative to its comparatively low pri
 ## Instances with Unusually Low Price
 
 <details>
+
 ```python
 # Instances with a price less than 1 million
 filtered_df = df[df['price'] < 1e6]
@@ -266,6 +284,7 @@ sorted_df = filtered_df.sort_values(by='price', ascending=True)
 
 sorted_df.head()
 ```
+
 </details>
 
 Instances with a price less than 1 million:
