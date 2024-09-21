@@ -1,6 +1,8 @@
 # House Price Prediction Using Stacked Ensemble Regression
 
-**# Project Roadmap**
+# Project Structure
+
+```bash
 ├── Setup
 ├── Project Overview: Predicting House Prices
 │   ├── Description
@@ -16,6 +18,7 @@
 ├── Analyzing Price Trends Across Various Features
 ├── Correlation of Numerical Variables
 └── Data Transformation with Box-Cox
+```
 
 # Setup
 
