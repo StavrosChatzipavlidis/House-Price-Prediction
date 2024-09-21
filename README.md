@@ -2,42 +2,20 @@
 
 **# Project Roadmap**
 ├── Setup
-│
 ├── Project Overview: Predicting House Prices
 │   ├── Description
-│   │   └── Explanation of project goals and features
 │   └── Data Overview
-│       └── Sample data table with key features
-│
 ├── Data Preprocessing
 │   ├── Handling Missing Values
-│   │   └── Explanation of missing values analysis
 │   ├── Creating New Feature: Total Square Footage
 │   ├── Target Variable Analysis
-│   │   ├── Checking for Instances with Negative or Zero Prices
-│   │   └── Removing Instances with Zero Prices
 │   └── Checking for Outliers in Price
-│       └── Visualization and handling of outliers
-│
 ├── Exploratory Data Analysis (EDA)
 │   ├── Analyzing Price Distribution
-│   │   ├── Histogram and QQ-Plot analysis
-│   │   └── Evaluation of skewness and kurtosis
 │   └── Evaluating Price Transformations for Normality
-│       ├── Comparison of Log and Box-Cox transformations
-│       └── Results of transformations
-│
 ├── Analyzing Price Trends Across Various Features
-│   └── Bar plots and insights on price trends
-│
 ├── Correlation of Numerical Variables
-│   └── Heatmap and correlation analysis of features
-│
 └── Data Transformation with Box-Cox
-    ├── Applying Box-Cox transformation
-    └── Visualizations of original and transformed data
-
-
 
 # Setup
 
