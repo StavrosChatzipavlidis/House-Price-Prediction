@@ -387,6 +387,7 @@ for name, transform in transformation_methods.items():
 This code applies Log and Box-Cox transformations to the price variable, then calculates and prints the skewness, kurtosis, and Shapiro-Wilk test p-value for each transformed dataset to evaluate their normality.
 
 <details>
+
 ```python
 # log1p transformation
 log_transformed_data = np.log1p(df['price'])
@@ -406,6 +407,7 @@ print("Kurtosis:", kurtosis(boxcox_transformed_data))
 shapiro_boxcox = shapiro(boxcox_transformed_data)
 print("Shapiro-Wilk test p-value:", shapiro_boxcox[1])
 ```
+
 </details>
 
 | Transformation         | Skewness       | Kurtosis       | Shapiro-Wilk p-value         |
