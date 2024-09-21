@@ -99,6 +99,7 @@ Although sqft_lot exists, it represents the entire area of the land and not just
 ## Checking for Instances with Negative or Zero Prices
 
 <details>
+
 ```python
 instances_with_negative_or_zero_price = df[(df['price'] <= 0)]
 
@@ -108,8 +109,7 @@ if not instances_with_negative_or_zero_price.empty:
 else:
     print("There are no instances with negative or zero prices.")
 ```
-
-Output:
+</details>
 
 There are instances with negative or zero prices:
 |     | price | bedrooms | bathrooms | sqft_living | sqft_lot | floors | waterfront | view | condition | sqft_above | sqft_basement | yr_built | yr_renovated |
