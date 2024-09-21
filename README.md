@@ -311,6 +311,7 @@ Now, the scatterplot reveals a clearer pattern, with price increasing as total s
 ## Analyzing Price Distribution with Histogram and QQ-Plot
 
 <details>
+
 ```python
 sns.distplot(df['price'] , fit=norm);
 
@@ -329,6 +330,7 @@ fig = plt.figure()
 res = stats.probplot(df['price'], plot=plt)
 plt.show()
 ```
+
 </details>
 
 ![scatterplot1](./img/price_distribution.png)
@@ -348,6 +350,7 @@ The target variable exhibits right skewness. Linear models tend to perform bette
 We will compare two methods—Log Transformation and Box-Cox Transformation—to convert the variable into a more normal distribution.
 
 <details>
+
 ```python
 transformation_methods = {
     'Original': lambda x: x,
@@ -376,6 +379,7 @@ for name, transform in transformation_methods.items():
     plt.tight_layout()
     plt.show()
 ```
+
 </details>
 
 ![original_dist](./img/original_dist.png)
@@ -424,6 +428,7 @@ The Box-Cox transformation produces data with skewness and kurtosis closer to 0,
 This code generates bar plots to visualize the relationship between house prices and several features, including bedrooms, waterfront, view, condition, yr_built, and yr_renovated, using median price for each category.
 
 <details>
+
 ```python
 num_bins = 5
 
@@ -455,6 +460,7 @@ for i, column in enumerate(columns):
 plt.tight_layout()
 plt.show()
 ```
+
 </details>
 
 ![Price_trends](./img/price_trends.png)
@@ -474,6 +480,7 @@ The correlation analysis highlights low correlations among most features, with a
 This section applies the Box-Cox transformation to the sqft_lot, sqft_above, and total_sqft variables, visualizing the effects through density plots of both the original and transformed distributions. It also features QQ plots for each variable to assess normality by comparing sample quantiles against theoretical quantiles, demonstrating how closely the transformed data approximates a normal distribution.
 
 <details>
+
 ```python
 # Box-Cox transformation on 'sqft_lot'
 transformed_sqft_lot, lambda_value = boxcox(df['sqft_lot'])
@@ -507,6 +514,7 @@ axes[1, 1].set_ylabel('Sample Quantiles')
 plt.tight_layout()
 plt.show()
 ```
+
 </details>
 
 **sqft_lot**
@@ -523,6 +531,7 @@ plt.show()
 This section transforms selected variables using the Box-Cox method, enhancing their normality. The lambda values are retained for reversion.
 
 <details>
+
 ```python
 columns_to_transform = ['price', 'sqft_lot', 'sqft_above', 'total_sqft']
 
@@ -538,6 +547,7 @@ for column, lambda_value in lambda_values.items():
 
 df.head()
 ```
+
 </details>
 
 | Variable      | Lambda Value          |
