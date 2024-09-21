@@ -102,15 +102,15 @@ Although sqft_lot exists, it represents the entire area of the land and not just
 
 	<details>
 
-```python
-instances_with_negative_or_zero_price = df[(df['price'] <= 0)]
+	```python
+	instances_with_negative_or_zero_price = df[(df['price'] <= 0)]
 
-if not instances_with_negative_or_zero_price.empty:
-    print("There are instances with negative or zero prices:")
-    print(instances_with_negative_or_zero_price)
-else:
-    print("There are no instances with negative or zero prices.")
-```
+	if not instances_with_negative_or_zero_price.empty:
+		print("There are instances with negative or zero prices:")
+		print(instances_with_negative_or_zero_price)
+	else:
+		print("There are no instances with negative or zero prices.")
+	```
 
 	</details>
 
