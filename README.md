@@ -1,4 +1,4 @@
-# Stacked-Ensemble-Regression
+# House Price Prediction Using Stacked Ensemble Regression
 Stacked ensemble linear regression, combining XGBoost and CatBoost with Lasso and Ridge, to enhance house price predictions.
 
 # Setup
@@ -75,22 +75,6 @@ Below is an overview of the dataset containing information on house prices and r
 | 550000.0  | 4.0      | 2.50      | 1940        | 10500    | 1.0    | 0          | 0    | 4         | 1140       | 800           | 1976     | 1992         |
 
 # Data Preprocessing
-
-## Converting Data Types to 32-bit
-
-```python
-int_columns = ['bedrooms', 'price']
-
-df[int_columns] = df[int_columns].astype('int32')
-
-for col in df.select_dtypes(include=['int64']).columns:
-    # Convert int64 columns to int32
-    df[col] = df[col].astype('int32')
-
-for col in df.select_dtypes(include=['float64']).columns:
-    # Convert float64 columns to float32
-    df[col] = df[col].astype('float32')
-```
 
 ## Handling Missing Values
 
