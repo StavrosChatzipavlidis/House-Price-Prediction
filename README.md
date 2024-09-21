@@ -74,6 +74,7 @@ Below is an overview of the dataset containing information on house prices and r
 | 420000.0  | 3.0      | 2.25      | 2000        | 8030     | 1.0    | 0          | 0    | 4         | 1000       | 1000          | 1963     | 0            |
 | 550000.0  | 4.0      | 2.50      | 1940        | 10500    | 1.0    | 0          | 0    | 4         | 1140       | 800           | 1976     | 1992         |
 
+<details>
 # Data Preprocessing
 
 ## Handling Missing Values
@@ -98,7 +99,7 @@ Although sqft_lot exists, it represents the entire area of the land and not just
 
 ## Checking for Instances with Negative or Zero Prices
 
-<details>
+	<details>
 
 ```python
 instances_with_negative_or_zero_price = df[(df['price'] <= 0)]
@@ -110,7 +111,7 @@ else:
     print("There are no instances with negative or zero prices.")
 ```
 
-</details>
+	</details>
 
 There are instances with negative or zero prices:
 |     | price | bedrooms | bathrooms | sqft_living | sqft_lot | floors | waterfront | view | condition | sqft_above | sqft_basement | yr_built | yr_renovated |
@@ -121,24 +122,23 @@ There are instances with negative or zero prices:
 | 4358 | 0.0   | 5.0      | 3.50      | 3480        | 36615    | 2.0    | 0          | 0    | 4         | 2490       | 990           | 1983     | 0            |
 | 4361 | 0.0   | 5.0      | 1.50      | 1500        | 7112     | 1.0    | 0          | 0    | 5         | 760        | 740           | 1920     | 0            |
 
-</details>
 
 There are instances with prices set to zero. These instances are not realistic and should be removed from the dataset.
 
 ## Removing Instances with Zero Prices
 
-<details>
+	<details>
 
 ```python
 indices_to_drop = df[df['price'] == 0].index
 df.drop(indices_to_drop, inplace=True)
 ```
 
-</details>
+	</details>
 
 ## Checking for Outliers in Price
 
-<details>
+	<details>
 
 ```python
 plt.figure(figsize=(8, 6))
@@ -148,13 +148,13 @@ plt.ylabel('Price')
 plt.show()
 ```
 
-</details>
+	</details>
 
 ![boxplot](./img/boxplot.png)
 
 ## Visualizing Price vs. Total Square Feet
 
-<details>
+	<details>
 
 ```python
 plt.scatter(x=df['total_sqft'], y=df['price'])
@@ -163,7 +163,7 @@ plt.xlabel('Total Square Feet')
 plt.show()
 ```
 
-</details>
+	</details>
 
 ![scatterplot](./img/price_sqft_scatter.png)
 
@@ -173,7 +173,7 @@ Here, there are 3 outliers that don't make sense: two very expensive houses with
 
 ### Instances with Unusual Prices
 
-<details>
+	<details>
 
 ```python
 # Get the rows with the 2 highest values in the 'price' column
@@ -183,7 +183,7 @@ print("Instances with the highest price:")
 print(top_2_highest)
 ```
 
-</details>
+	</details>
 
 Top 2 highest values in the 'Price' column:
 | Instance | Price      | Bedrooms | Bathrooms | Sqft Living | Sqft Lot | Floors | Waterfront | View | Condition | Sqft Above | Sqft Basement | Year Built | Year Renovated | Total Sqft |
@@ -191,7 +191,7 @@ Top 2 highest values in the 'Price' column:
 | 4350     | 26,590,000 | 3        | 2.0       | 1,180        | 7,793     | 1.0     | 0           | 0    | 4          | 1,180        | 0               | 1992        | 0               | 2,360        |
 | 4346     | 12,899,000 | 3        | 2.5       | 2,190        | 11,394    | 1.0     | 0           | 0    | 3          | 1,550        | 640             | 1956        | 2001            | 4,380        |
 
-<details>
+	<details>
 
 ```python
 description = df[['total_sqft', 'sqft_lot']].describe().reset_index()
@@ -203,8 +203,9 @@ description.rename(columns={'index': 'Statistics'}, inplace=True)
 print(description.to_string(index=False))
 ```
 
-</details>
+	</details>
 
+Descriptive statistics of total_sqft and sqft_lot:
 |   Statistics |   total_sqft |   sqft_lot |
 |--------------|--------------|------------|
 | count        |      4551.000|    4551.000|
@@ -222,7 +223,7 @@ The analysis reveals that the first instance lacks justification for its price, 
 
 To ensure the integrity of our analysis, we identified outliers characterized by exceptionally high prices. Instances where the price exceeded $12,000,000 and the total square footage was less than 5000 square feet were flagged as outliers. Subsequently, these outliers were removed from the dataset to mitigate their potential influence on our modeling efforts. The following Python code snippet demonstrates this outlier removal process:
 
-<details>
+	<details>
 
 ```python
 instances_with_highest_price = df[(df['price'] > 12e6) & (df['total_sqft'] < 5000)].index
@@ -230,11 +231,11 @@ instances_with_highest_price = df[(df['price'] > 12e6) & (df['total_sqft'] < 500
 df.drop(instances_with_highest_price, inplace=True)
 ```
 
-</details>
+	</details>
 
 ## Instances with Unusually High Square Footage
 
-<details>
+	<details>
 
 ```python
 top_2_highest_sqft = df.nlargest(2, 'total_sqft')
@@ -243,7 +244,7 @@ print("Instances with the highest Total_sqft:")
 print(top_2_highest_sqft)
 ```
 
-</details>
+	</details>
 
 | Instance |    price   |  bedrooms |  bathrooms | sqft_living | sqft_lot | floors | waterfront | view | condition | sqft_above | sqft_basement | yr_built | yr_renovated | total_sqft |
 |----------|------------|-----------|------------|-------------|----------|--------|------------|------|-----------|------------|----------------|----------|--------------|------------|
@@ -253,7 +254,7 @@ print(top_2_highest_sqft)
 
 Despite being the largest house in terms of total square footage, the price of the first instance appears relatively low when compared to properties of similar sizes. When assessing its rank in the price range, the code below demonstrates that it occupies the 30th position:
 
-<details>
+	<details>
 
 ```python
 # Sort the DataFrame by price in descending order
@@ -268,13 +269,13 @@ rank_of_instance_122 = index_of_instance_122 + 1
 print(rank_of_instance_122)
 ```
 
-</details>
+	</details>
 
 Given the large size of the first instance relative to its comparatively low price, it's advisable to remove this entry from the dataset.
 
 ## Instances with Unusually Low Price
 
-<details>
+	<details>
 
 ```python
 # Instances with a price less than 1 million
@@ -285,7 +286,7 @@ sorted_df = filtered_df.sort_values(by='price', ascending=True)
 sorted_df.head()
 ```
 
-</details>
+	</details>
 
 Instances with a price less than 1 million:
 | price | bedrooms | bathrooms | sqft_living | sqft_lot | floors | waterfront | view | condition | sqft_above | sqft_basement | yr_built | yr_renovated | total_sqft |
@@ -293,3 +294,5 @@ Instances with a price less than 1 million:
 | 7800  | 2        | 1.00      | 780         | 16344    | 1.0    | 0          | 0    | 1         | 780        | 0             | 1942     | 0            | 1560       |
 
 In this code snippet, we filter out instances with prices less than $1,000,000 and then sort the DataFrame by price in ascending order. This step ensures that outliers or anomalies in the data, such as extremely low prices, are appropriately addressed before proceeding with further analysis.
+
+</details>
