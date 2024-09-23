@@ -4,7 +4,7 @@
 
 ```bash
 ├── Setup
-├── Technical Breakdown
+├── Methodological Overview
 ├── Project Overview: Predicting House Prices
 │   ├── Description
 │   └── Data Overview
@@ -21,23 +21,23 @@
 └── Data Transformation with Box-Cox
 ```
 
-# Technical Breakdown
+# Methodological Overview
 
-- Data Cleaning:
-Handling Missing Values: Verified the absence of missing data, avoiding imputation methods that could introduce variance.
-Removal of Unrealistic Data Points: Excluded instances with zero or negative prices and implausible outliers based on domain knowledge and statistical tests.
-Outlier Detection: Identified and removed extreme values using interquartile ranges and scatterplot analysis, particularly for price and square footage.
+**Data Cleaning:**
+- Handling Missing Values: Verified the absence of missing data, avoiding imputation methods that could introduce variance.
+- Removal of Unrealistic Data Points: Excluded instances with zero or negative prices and implausible outliers based on domain knowledge and statistical tests.
+- Outlier Detection: Identified and removed extreme values using interquartile ranges and scatterplot analysis, particularly for price and square footage.
 
-- Exploratory Data Analysis (EDA):
-Target Variable Analysis: Assessed the distribution of house prices using histograms, box plots, and descriptive statistics (mean, median, skewness, kurtosis).
-Normality Assumptions of Target Variable: Evaluated normality through visual inspection (QQ-plots) and statistical tests (Shapiro-Wilk), revealing significant right skew and heavy tails.
-Price Trends Across Features: Explored price variations across key categorical variables (bedrooms, waterfront, view, etc.) using bar plots and median price comparisons.
-Correlation Analysis: Generated heatmaps to examine multicollinearity, particularly focusing on correlations between total square footage and related features (sqft_above, sqft_living).
+**Exploratory Data Analysis (EDA):**
+- Target Variable Analysis: Assessed the distribution of house prices using histograms, box plots, and descriptive statistics (mean, median, skewness, kurtosis).
+- Normality Assumptions of Target Variable: Evaluated normality through visual inspection (QQ-plots) and statistical tests (Shapiro-Wilk), revealing significant right skew and heavy tails.
+- Price Trends Across Features: Explored price variations across key categorical variables (bedrooms, waterfront, view, etc.) using bar plots and median price comparisons.
+- Correlation Analysis: Generated heatmaps to examine multicollinearity, particularly focusing on correlations between total square footage and related features (sqft_above, sqft_living).
 
-- Data Transformations:
-Log and Box-Cox Transformations: Applied to the target variable (price) and key features (sqft_lot, total_sqft, sqft_above) to address non-normality, with Box-Cox showing more optimal skewness and kurtosis reductions.
-Feature Engineering: Created a new variable, total_sqft, by aggregating sqft_living, sqft_above, and sqft_basement, improving correlation with house prices.
-Outlier Handling Post-Transformation: Reassessed transformed variables, ensuring a better fit for linear models and removing residual outliers after transformation.
+**Data Transformations:**
+- Log and Box-Cox Transformations: Applied to the target variable (price) and key features (sqft_lot, total_sqft, sqft_above) to address non-normality, with Box-Cox showing more optimal skewness and kurtosis reductions.
+- Feature Engineering: Created a new variable, total_sqft, by aggregating sqft_living, sqft_above, and sqft_basement, improving correlation with house prices.
+- Outlier Handling Post-Transformation: Reassessed transformed variables, ensuring a better fit for linear models and removing residual outliers after transformation.
 
 # Setup
 
